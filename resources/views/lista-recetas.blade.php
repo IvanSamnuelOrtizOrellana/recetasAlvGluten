@@ -20,8 +20,25 @@
         <h2>{{ $receta->titulo }}</h2><br>
         <p><strong>Ingredientes:</strong>{{ $receta->ingredientes }}</p>
     </li>
+    
+    @if ($receta->gluten_free)
+        <p style="color: green;"><strong>¡Esta receta es sin gluten! 🌟</strong></p>
+    @else
+        <p style="color: red;"><strong>¡Esta receta contiene gluten! ⚠️</strong></p>
+    @endif
+    
+    <form action="/recetas/borrar/{{ $receta->id }}" method="POST" style="display:inline;">
+    
+    @csrf 
+     @method('DELETE')
+    
+    <button type="submit" style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer;">
+        Borrar Receta
+    </button>
+</form>
 
     @endforeach
+
 </ul>
 
 </body>
