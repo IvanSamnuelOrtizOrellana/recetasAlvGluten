@@ -18,7 +18,9 @@ Route::post('/guardar-receta', [RecetaController::class, 'store']);
 
 Route::delete('/recetas/borrar/{id}', [RecetaController::class, 'destroy']);
 
-Route::get('/ofertas', [OfertaController::class,'index']);
+Route::resource('/ofertas', OfertaController::class);
+Route::get('/crear-oferta', [OfertaController::class,'create']);
+Route::post('/ofertas', [OfertaController::class,'store']);
 
 
 

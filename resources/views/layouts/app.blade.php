@@ -18,7 +18,7 @@
                 <li><a href="/ofertas" class="hover:text-lime-200 transition">Ofertas</a></li>
                 <li><a href="/recetas" class="hover:text-lime-200 transition">Recetas</a></li>
                 <li><a href="/videos" class="hover:text-lime-200 transition">Videos</a></li>
-                
+                <li><a href="/perfil" class="hover:text-lime-200 transition">Perfil</a></li>
             </ul>
         </div>
     </nav>
@@ -27,8 +27,8 @@
         @yield('contenido')
     </main>
 
-    <footer class="bg-lime-700 text-center p-4 text-gray-300 mt-12">
-        <p>AlVGluten © 2026</p>
+    <footer class="bg-lime-700 text-center p-4 text-gray-100 mt-12">
+        <p>AlvGluten © 2026</p>
     </footer>
     
 </body>

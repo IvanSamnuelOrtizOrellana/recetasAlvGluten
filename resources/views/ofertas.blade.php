@@ -4,7 +4,7 @@
     
     <div class="mb-8 flex justify-between items-center">
         <h1 class="text-3xl font-bold text-gray-800">Los mejores productos sin gluten🛒</h1>
-        <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded shadow transition">
+        <a href="\crear-oferta" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded shadow transition">
             + Agregar Oferta
         </a>
     </div>

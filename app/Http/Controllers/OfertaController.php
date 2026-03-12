@@ -14,7 +14,7 @@ class OfertaController
     public function index()
     {
         $todasLasOfertas = Oferta::all();
-        return view('oferta',['ofertas'=>$todasLasOfertas]);
+        return view('ofertas',['ofertas'=>$todasLasOfertas]);
     }
 
     /**
@@ -22,7 +22,7 @@ class OfertaController
      */
     public function create()
     {
-        //
+        return view('crear-oferta');
     }
 
     /**
@@ -30,7 +30,14 @@ class OfertaController
      */
     public function store(Request $request)
     {
-        //
+        $nuevaOferta = new Oferta();
+        $nuevaOferta->titulo = $request->titulo;
+        $nuevaOferta->descripcion = $request->descripcion;
+        $nuevaOferta->tienda = $request->tienda;
+        $nuevaOferta->precio_original = $request->precio_original;
+        $nuevaOferta->precio_descuento = $request->precio_descuento;
+        $nuevaOferta->save();
+        return redirect('/ofertas');
     }
 
     /**

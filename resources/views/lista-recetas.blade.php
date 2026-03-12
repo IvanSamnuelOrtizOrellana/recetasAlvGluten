@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recetas AlVGluten</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body  >
+@extends('layouts.app')
+@section('contenido')
     <div style="display: flex; justify-content: flex-end;">
     <a href="http://alvgluten-web.test/agregar-receta" target="_blank" style="display: inline-block; margin-bottom: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;" traget="_blank">
         <button>Agregar Receta</button>
@@ -42,5 +34,4 @@
 
 </ul>
 
-</body>
-</html>
+@endsection

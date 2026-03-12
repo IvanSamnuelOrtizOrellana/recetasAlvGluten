@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string ('titulo');
             $table->text ('descripcion');
             $table->string ('tienda');
-            $table->decimal('precio_origila',8,2);
+            $table->decimal('precio_original',8,2);
             $table->decimal('precio_descuento',8,2); //el 8 y el 2 son lo digitos y los decimales.
             $table->timestamps();
         });
