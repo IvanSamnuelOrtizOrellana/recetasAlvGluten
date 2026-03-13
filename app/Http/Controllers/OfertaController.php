@@ -53,7 +53,8 @@ class OfertaController
      */
     public function edit(string $id)
     {
-        //
+        $oferta = \App\Models\Oferta::findOrfail( $id );
+        return view('editar-oferta',['oferta'=>$oferta]);
     }
 
     /**
@@ -61,7 +62,14 @@ class OfertaController
      */
     public function update(Request $request, string $id)
     {
-        //
+        $oferta = \App\Models\Oferta::findOrfail( $id );
+        $oferta->titulo = $request->titulo;
+        $oferta->descripcion = $request->descripcion;
+        $oferta->tienda = $request->tienda;
+        $oferta->precio_original = $request->precio_original;
+        $oferta->precio_descuento = $request->precio_descuento;
+        $oferta->save();
+        return redirect('/ofertas');
     }
 
     /**
@@ -69,6 +77,12 @@ class OfertaController
      */
     public function destroy(string $id)
     {
-        //
+         $oferta = \App\Models\Oferta::findOrFail($id);
+
+        // 2. Le decimos al objeto que se elimine a sí mismo
+        $oferta->delete();
+
+        // 3. Recargamos la página con un mensaje
+        return redirect('/ofertas');
     }
 }

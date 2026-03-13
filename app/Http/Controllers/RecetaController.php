@@ -124,13 +124,13 @@ class RecetaController
         
     
         // 1. Buscamos la receta exacta por su ID
-        $receta = Receta::find($id);
+       $receta = \App\Models\Receta::findOrFail($id);
 
         // 2. Le decimos al objeto que se elimine a sí mismo
         $receta->delete();
 
         // 3. Recargamos la página con un mensaje
-        return back()->with('success', 'Receta eliminada para siempre. 🗑️');
+        return redirect('/recetas');
     
     }
 }

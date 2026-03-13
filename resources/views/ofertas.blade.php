@@ -1,18 +1,15 @@
 @extends('layouts.app')
-
 @section('contenido')
-    
-    <div class="mb-8 flex justify-between items-center">
-        <h1 class="text-3xl font-bold text-gray-800">Los mejores productos sin gluten🛒</h1>
-        <a href="\crear-oferta" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded shadow transition">
+<div class="mb-8 flex justify-between items-center">
+        <h1 class="text-3xl font-bold text-gray-800">Las mejores ofertas</h1>
+        <a href="/ofertas/create" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded shadow transition">
             + Agregar Oferta
         </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        @forelse($ofertas as $oferta)
-            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition duration-300">
+@forelse($ofertas as $oferta)
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col justify-between hover:shadow-lg transition duration-300">
                 <div class="p-5">
                     
                     <div class="flex justify-between items-start mb-2">
@@ -36,6 +33,25 @@
                     </div>
                     
                 </div>
+
+                <div class="bg-gray-50 p-3 border-t border-gray-100">
+                    
+                    <div class="bg-gray-50 p-3 border-t border-gray-100 flex gap-2">
+                    
+                    <a href="/ofertas/{{ $oferta->id }}/edit" class="w-1/2 text-center bg-white hover:bg-blue-50 text-blue-500 font-bold py-2 px-2 rounded border border-blue-200 transition duration-300 text-sm">
+                        ✏️ Editar
+                    </a>
+
+                    <form action="/ofertas/{{ $oferta->id }}" method="POST" onsubmit="return confirm('¿Seguro que quieres borrar esta oferta?');" class="w-1/2">
+                        @csrf 
+                        @method('DELETE')
+                        <button type="submit" class="w-full bg-white hover:bg-red-50 text-red-500 font-bold py-2 px-2 rounded border border-red-200 transition duration-300 text-sm">
+                            🗑️ Eliminar
+                        </button>
+                    </form>
+                </div>
+                </div>
+
             </div>
 
         @empty
@@ -44,7 +60,4 @@
                 <p class="text-gray-400">¡Sé el primero en compartir un descuento para la comunidad!</p>
             </div>
         @endforelse
-
-    </div>
-
 @endsection

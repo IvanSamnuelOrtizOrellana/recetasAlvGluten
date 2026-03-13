@@ -16,11 +16,14 @@ Route::get('/agregar-receta',[RecetaController::class,'create']);
 
 Route::post('/guardar-receta', [RecetaController::class, 'store']);
 
-Route::delete('/recetas/borrar/{id}', [RecetaController::class, 'destroy']);
+Route::delete('/recetas/{id}', [RecetaController::class, 'destroy']);
+
+
 
 Route::resource('/ofertas', OfertaController::class);
 Route::get('/crear-oferta', [OfertaController::class,'create']);
 Route::post('/ofertas', [OfertaController::class,'store']);
+Route::delete('/ofertas/borrar/{id}', [OfertaController::class,'destroy']);
 
 
 
