@@ -105,7 +105,8 @@ class RecetaController
      */
     public function edit(string $id)
     {
-        //
+        $receta = \App\Models\Receta::findOrfail( $id );
+        return view('editar-receta',['receta'=>$receta]);
     }
 
     /**

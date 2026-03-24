@@ -4,7 +4,7 @@
     <div class="bg-white p-10 rounded-xl shadow-lg text-center max-w-3xl mx-auto">
         
         <h1 class="text-5xl font-extrabold text-gray-800 mb-6">
-            ¡Bienvenido a <span class="text-lime-500">AlVGluten</span>!
+            ¡Bienvenido a <span class="text-sky-500">AlvGluten</span>!
         </h1>
         
         <p class="text-xl text-gray-600 mb-8">
@@ -13,10 +13,10 @@
         
         <div class="flex justify-center space-x-4">
             <a href="/ofertas" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow transition">
-                🛒 Cazar Ofertas
+            Ofertas
             </a>
             <a href="/recetas" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow transition">
-                👨‍🍳 Ver Recetas
+                Ver Recetas
             </a>
         </div>
         

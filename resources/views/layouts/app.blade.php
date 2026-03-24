@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALVgluten</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-lime-100 flex flex-col min-h-screen">
-<nav class="bg-lime-500 p-4 text-white shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="/" class="flex items-center gap-3">
-            <img src="{{ asset('images/logo_alvgluten.png' ) }}" alt="Logo AlVGluten" class="h-24 w-auto" >
-            </a>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title img src="{{ asset('images/logo_alvgluten.png' ) }}" alt="Logo AlVGluten" class="h-24 w-auto" >
             
-            <ul class="flex space-x-6 font-semibold">
-                <li><a href="/" class="hover:text-lime-200 transition">Inicio</a></li>
-                <li><a href="/ofertas" class="hover:text-lime-200 transition">Ofertas</a></li>
-                <li><a href="/recetas" class="hover:text-lime-200 transition">Recetas</a></li>
-                <li><a href="/videos" class="hover:text-lime-200 transition">Videos</a></li>
-                <li><a href="/perfil" class="hover:text-lime-200 transition">Perfil</a></li>
-            </ul>
+            </title>
+
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased bg-gray-50 text-gray-900">
+        <div class="min-h-screen">
+            
+            @include('layouts.navigation')
+
+            @isset($header)
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endisset
+
+            <main class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+                @yield('contenido')
+                
+                @if(isset($slot))
+                    {{ $slot }}
+                @endif
+            </main>
+            
         </div>
-    </nav>
-
-    <main class="container mx-auto mt-8 p-4 flex-grow">
-        @yield('contenido')
-    </main>
-
-    <footer class="bg-lime-700 text-center p-4 text-gray-100 mt-12">
-        <p>AlvGluten © 2026</p>
-    </footer>
-    
-</body>
+    </body>
 </html>
